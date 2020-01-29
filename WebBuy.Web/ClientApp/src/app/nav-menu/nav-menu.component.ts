@@ -21,4 +21,8 @@ export class NavMenuComponent {
     sessionStorage.removeItem("autenticated");
     location.href = '/';
   }
+
+  public usuarioLogado(): boolean {
+    return sessionStorage.getItem("autenticated") == "1";
+  }
 }
