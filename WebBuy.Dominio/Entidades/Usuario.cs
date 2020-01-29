@@ -1,0 +1,74 @@
+﻿using System.Collections.Generic;
+
+namespace WebBuy.Dominio.Entidades
+{
+    public class Usuario : Entidade
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public long CPF { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
+
+        public virtual ICollection<Pedido> Pedidos { get; set; }
+
+        public override void Validate()
+        {
+            LimparMensagensValidacao();
+            if (string.IsNullOrEmpty(Nome))
+                AdicionarCritica("Nome em branco");
+            if (string.IsNullOrEmpty(Email))
+                AdicionarCritica("Email em branco");
+            if (string.IsNullOrEmpty(Senha))
+                AdicionarCritica("Senha em branco");
+            if (CPF == 0 || !isCPF(CPF.ToString()))
+                AdicionarCritica("CPF Inválido");
+        }
+        public bool isCPF(string cpf)
+
+        {
+
+            int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+            string tempCpf;
+            string digito;
+            int soma;
+            int resto;
+
+            cpf = cpf.Trim();
+            cpf = cpf.Replace(".", "").Replace("-", "");
+
+            if (cpf.Length != 11)
+                return false;
+
+            tempCpf = cpf.Substring(0, 9);
+            soma = 0;
+            
+            for (int i = 0; i < 9; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+            
+            resto = soma % 11;
+
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+
+            digito = resto.ToString();
+            tempCpf = tempCpf + digito;
+            soma = 0;
+
+            for (int i = 0; i < 10; i++)
+                soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+            
+            resto = soma % 11;
+
+            if (resto < 2)
+                resto = 0;
+            else
+                resto = 11 - resto;
+            digito = digito + resto.ToString();
+            return cpf.EndsWith(digito);
+        }
+    }
+}

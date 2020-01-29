@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "SqlServerConnection": "Server=.;Database=WebBuy;User Id=webbuy;Password=webbuy;"
+  } 
+}
