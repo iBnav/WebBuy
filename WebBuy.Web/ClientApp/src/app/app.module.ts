@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './login/login.component';
 import { RouteGuard } from './autorizacao/route.guard';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { RouteGuard } from './autorizacao/route.guard';
       { path: 'login', component: LoginComponent},
     ])
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
