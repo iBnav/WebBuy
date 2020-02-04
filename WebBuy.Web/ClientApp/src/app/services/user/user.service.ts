@@ -19,6 +19,6 @@ export class UserService {
       senha: user.senha
     }
 
-    return this.http.post<User>(this.baseURL + "api/usuario", body, { headers });
+    return this.http.post<User>(this.baseURL + "api/User/VerificarUsuario", body, { headers });
   }
 }

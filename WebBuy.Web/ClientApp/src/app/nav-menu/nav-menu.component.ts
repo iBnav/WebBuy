@@ -19,7 +19,7 @@ export class NavMenuComponent {
 
   Logout() {
     sessionStorage.removeItem("autenticated");
-    location.href = '/';
+    sessionStorage.removeItem("userId");
   }
 
   public usuarioLogado(): boolean {

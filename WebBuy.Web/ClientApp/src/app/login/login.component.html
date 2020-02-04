@@ -3,19 +3,16 @@
     <img src="..\..\..\assets\images\shoppingcart.png" class="img-fluid mb-5" style="max-width:100px" />
     <h1 class="h4">Login</h1>
     <label for="inputEmail" class="sr-only">Email</label>
-    <input
-           type="email" name="inputEmail" placeholder="Digite o e-mail" class="form-control mb-2" id="inputEmail" [(ngModel)]="user.email" #email="ngModel"
+    <input type="email" name="inputEmail" placeholder="Digite o e-mail" class="form-control mb-2" id="inputEmail" [(ngModel)]="user.email" #email="ngModel"
            [ngClass]="{
                 'is-invalid':email.invalid && (email.dirty || email.touched),
                 'is-valid':email.valid && (email.dirty || email.touched)
             }"
-           email required
-    />
+           email required />
     <label for="inputPassword" class="sr-only">Senha</label>
     <input type="password" name="inputPassword" class="form-control mb-2" id="inputPassword" placeholder="Senha" [(ngModel)]="user.senha" required />
-
     <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">Entrar</button>
-
+    <div class="error mt-1" *ngIf="responseMessage">{{responseMessage}}</div>
   </form>
 
 </div>
