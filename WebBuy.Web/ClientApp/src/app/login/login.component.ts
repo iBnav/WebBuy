@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
     this.userService.verificarUsuario(this.user).subscribe(
       data => {
+        this.responseMessage = null;
         var returnedUser: User;
         returnedUser = data;
         sessionStorage.setItem("autenticated", "1");
@@ -37,11 +38,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(["/"]);
       },
       err => {
+        this.user = new User();
         this.responseMessage = err.error;
       }
     );
-
-    //sessionStorage.setItem('autenticated', "1");
-    //this.router.navigate([this.returnUrl]);
   }
 }
