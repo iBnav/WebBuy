@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebBuy.Repositorio.Contexto;
 
-namespace WebBuy.Repositorio.Migrations
+namespace WebBuy.Web.Migrations
 {
     [DbContext(typeof(Context))]
     partial class ContextModelSnapshot : ModelSnapshot
@@ -110,7 +110,7 @@ namespace WebBuy.Repositorio.Migrations
                         .HasMaxLength(50);
 
                     b.Property<decimal>("Preco")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("Decimal(10,2)");
 
                     b.HasKey("Id");
 
@@ -124,8 +124,9 @@ namespace WebBuy.Repositorio.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("CPF")
-                        .HasColumnType("bigint")
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(11)")
                         .HasMaxLength(11);
 
                     b.Property<string>("Email")

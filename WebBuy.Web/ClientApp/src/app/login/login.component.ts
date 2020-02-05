@@ -28,10 +28,11 @@ export class LoginComponent implements OnInit {
     this.userService.verificarUsuario(this.user).subscribe(
       data => {
         this.responseMessage = null;
-        var returnedUser: User;
-        returnedUser = data;
-        sessionStorage.setItem("autenticated", "1");
-        sessionStorage.setItem("userId", (returnedUser.id).toString());
+
+        this.userService.user = data;
+        
+        //sessionStorage.setItem("userId", (returnedUser.id).toString());
+
         if (this.returnUrl != null)
           this.router.navigate([this.returnUrl]);
         else

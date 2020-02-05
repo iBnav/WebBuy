@@ -35,6 +35,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200205203641_PrimeiraVersaoBase.cs" />
+    <Compile Remove="Migrations\20200205203641_PrimeiraVersaoBase.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\app\autorizacao\route.guard.ts" />
     <None Remove="ClientApp\src\app\login\login.component.ts" />
     <None Remove="ClientApp\src\app\model\user.ts" />

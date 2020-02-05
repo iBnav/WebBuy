@@ -6,7 +6,7 @@ namespace WebBuy.Dominio.Entidades
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public long CPF { get; set; }
+        public string CPF { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
 
@@ -21,7 +21,7 @@ namespace WebBuy.Dominio.Entidades
                 AdicionarCritica("Email em branco");
             if (string.IsNullOrEmpty(Senha))
                 AdicionarCritica("Senha em branco");
-            if (CPF == 0 || !isCPF(CPF.ToString()))
+            if (string.IsNullOrEmpty(CPF) || !isCPF(CPF.ToString()))
                 AdicionarCritica("CPF Inválido");
         }
         public bool isCPF(string cpf)

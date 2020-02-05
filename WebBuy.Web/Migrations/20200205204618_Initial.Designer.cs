@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebBuy.Repositorio.Contexto;
 
-namespace WebBuy.Repositorio.Migrations
+namespace WebBuy.Web.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20191226195648_PrimeiraVersaoBase")]
-    partial class PrimeiraVersaoBase
+    [Migration("20200205204618_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -112,7 +112,7 @@ namespace WebBuy.Repositorio.Migrations
                         .HasMaxLength(50);
 
                     b.Property<decimal>("Preco")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("Decimal(10,2)");
 
                     b.HasKey("Id");
 
@@ -126,8 +126,9 @@ namespace WebBuy.Repositorio.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("CPF")
-                        .HasColumnType("bigint")
+                    b.Property<string>("CPF")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(11)")
                         .HasMaxLength(11);
 
                     b.Property<string>("Email")
@@ -167,6 +168,26 @@ namespace WebBuy.Repositorio.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FormaPagamento");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Descricao = "Forma de Pagamento - Boleto",
+                            Nome = "Boleto"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Descricao = "Forma de Pagamento - Cartao de Crédito",
+                            Nome = "CartaoCredito"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Descricao = "Forma de Pagamento - Depósito",
+                            Nome = "Deposito"
+                        });
                 });
 
             modelBuilder.Entity("WebBuy.Dominio.Entidades.ItemPedido", b =>

@@ -7,6 +7,7 @@ namespace WebBuy.Dominio.Interfaces
 {
     public interface IUsuarioRepository : IBaseRepository<Usuario>
     {
-
+        Usuario Obter(Usuario user);
+        
     }
 }

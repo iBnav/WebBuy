@@ -18,7 +18,8 @@ namespace WebBuy.Repositorio.Config
                 .HasMaxLength(50);
             builder
                 .Property(p => p.Preco)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnType("Decimal(10,2)");
             builder
                 .Property(p => p.Descricao)
                 .IsRequired()
