@@ -11,11 +11,11 @@ namespace WebBuy.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
+            
             builder.HasKey(user => user.Id);
             builder
                 .Property(user => user.Email)
                 .IsRequired()
-                .HasColumnType("nvarchar")
                 .HasMaxLength(70);
             builder
                 .Property(user => user.Nome)

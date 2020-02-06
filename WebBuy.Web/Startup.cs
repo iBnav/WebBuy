@@ -26,7 +26,7 @@ namespace WebBuy.Web
             services.AddDbContext<Context>(option => 
                                             option.UseLazyLoadingProxies()
                                             .UseSqlServer(connectionString, s =>
-                                                                            s.MigrationsAssembly("WebBuy.Repositorio")));
+                                                                            s.MigrationsAssembly("WebBuy.Web")));
 
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();

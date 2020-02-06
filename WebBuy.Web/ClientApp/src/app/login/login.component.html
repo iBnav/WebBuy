@@ -11,7 +11,10 @@
            email required />
     <label for="inputPassword" class="sr-only">Senha</label>
     <input type="password" name="inputPassword" class="form-control mb-2" id="inputPassword" placeholder="Senha" [(ngModel)]="user.senha" required />
-    <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">Entrar</button>
+    <button class="btn btn-primary btn-block" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+      Entrar
+    </button>
     <div class="error mt-1" *ngIf="responseMessage">{{responseMessage}}</div>
   </form>
 

@@ -35,12 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200205203641_PrimeiraVersaoBase.cs" />
-    <Compile Remove="Migrations\20200205203641_PrimeiraVersaoBase.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="ClientApp\src\app\autorizacao\route.guard.ts" />
+    <None Remove="ClientApp\src\app\cadastro\cadastro.usuario.component.ts" />
+    <None Remove="ClientApp\src\app\cadastro\produto\cadastro.produto.component.ts" />
     <None Remove="ClientApp\src\app\login\login.component.ts" />
     <None Remove="ClientApp\src\app\model\user.ts" />
     <None Remove="ClientApp\src\app\produto\produto.component.ts" />
@@ -54,6 +51,10 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\autorizacao\route.guard.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cadastro\produto\cadastro.produto.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\cadastro\usuario\cadastro.usuario.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\login\login.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\model\user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\produto\produto.component.ts" />
@@ -65,10 +66,6 @@
     <Content Update="config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\cadastro\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -131,7 +131,7 @@ namespace WebBuy.Web.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar")
+                        .HasColumnType("nvarchar(70)")
                         .HasMaxLength(70);
 
                     b.Property<string>("Nome")

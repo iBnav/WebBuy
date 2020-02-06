@@ -10,8 +10,8 @@ using WebBuy.Repositorio.Contexto;
 namespace WebBuy.Web.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200205204618_Initial")]
-    partial class Initial
+    [Migration("20200206133410_Criacao")]
+    partial class Criacao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,7 +133,7 @@ namespace WebBuy.Web.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar")
+                        .HasColumnType("nvarchar(70)")
                         .HasMaxLength(70);
 
                     b.Property<string>("Nome")

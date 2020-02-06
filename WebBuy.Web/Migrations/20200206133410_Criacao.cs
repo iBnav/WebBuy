@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebBuy.Web.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Criacao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,7 +44,7 @@ namespace WebBuy.Web.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(maxLength: 50, nullable: false),
                     CPF = table.Column<string>(maxLength: 11, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar", maxLength: 70, nullable: false),
+                    Email = table.Column<string>(maxLength: 70, nullable: false),
                     Senha = table.Column<string>(maxLength: 500, nullable: true)
                 },
                 constraints: table =>
